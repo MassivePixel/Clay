@@ -6,6 +6,7 @@ using MassivePixel.Clay;
 
 [assembly: MapClass(typeof(Xamarin.Forms.StackLayout), typeof(Xamarin.Forms.Shadow.StackLayout))]
 [assembly: MapClass(typeof(Xamarin.Forms.Label), typeof(Xamarin.Forms.Shadow.Label))]
+[assembly: MapClass(typeof(Xamarin.Forms.Button), typeof(Xamarin.Forms.Shadow.Button))]
 
 namespace MassivePixel.Clay
 {
@@ -54,6 +55,18 @@ namespace MassivePixel.Clay
             }
 
             return null;
+        }
+
+        public static Patch Diff(this Xamarin.Forms.Shadow.View old, Xamarin.Forms.Shadow.View newer)
+        {
+            var patch = new Patch();
+
+            return patch;
+        }
+
+        public static Xamarin.Forms.View Patch(this Xamarin.Forms.View root, Patch patch)
+        {
+            return root;
         }
     }
 }

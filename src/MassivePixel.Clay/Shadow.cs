@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using MassivePixel.Clay;
 
 namespace Xamarin.Forms.Shadow
@@ -46,6 +47,21 @@ namespace Xamarin.Forms.Shadow
         {
             get { return Get<string>(); }
             set { Set(typeof(Xamarin.Forms.Label), value); }
+        }
+    }
+
+    public class Button : View
+    {
+        public string Text
+        {
+            get { return Get<string>(); }
+            set { Set(typeof(Xamarin.Forms.Button), value); }
+        }
+
+        public ICommand Command
+        {
+            get { return Get<ICommand>(); }
+            set { Set(typeof(Xamarin.Forms.Button), value);}
         }
     }
 }

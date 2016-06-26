@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{EA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassivePixel.Clay", "..\src\MassivePixel.Clay\MassivePixel.Clay.csproj", "{F6017B4C-77B6-410A-8F35-51AF79BD54F0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimpleTest", "SimpleTest", "{80BA643E-09F3-40DD-8D4B-3385E791AEDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F6017B4C-77B6-410A-8F35-51AF79BD54F0} = {EAA3E2BB-7F68-4055-BDBA-B110B4BAB980}
+		{8C321071-F378-40EB-BE2A-2CBE7E1354B3} = {80BA643E-09F3-40DD-8D4B-3385E791AEDA}
+		{77C4C32B-B79D-4D9D-B1C2-BEE5ADD99D56} = {80BA643E-09F3-40DD-8D4B-3385E791AEDA}
+		{B9381D28-8145-43CC-BB67-90FEF994E08F} = {80BA643E-09F3-40DD-8D4B-3385E791AEDA}
 	EndGlobalSection
 EndGlobal

@@ -37,6 +37,7 @@
     <Compile Include="Node.cs" />
     <Compile Include="IClayComponent.cs" />
     <Compile Include="VirtualDomRenderer.cs" />
+    <Compile Include="Patch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

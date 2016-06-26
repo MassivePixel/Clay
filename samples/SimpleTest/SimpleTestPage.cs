@@ -1,4 +1,5 @@
-﻿using MassivePixel.Clay;
+﻿using System.Windows.Input;
+using MassivePixel.Clay;
 using Xamarin.Forms;
 
 namespace SimpleTest
@@ -6,20 +7,39 @@ namespace SimpleTest
     public class SimpleTestPage : ContentPage, IClayComponent
     {
         Xamarin.Forms.Shadow.View vdom;
+        ICommand ClickCommand;
 
         public SimpleTestPage()
         {
+            ClickCommand = new Command(Click);
+
             vdom = Render();
             Content = vdom.Create();
         }
 
+        void Click()
+        {
+            DisplayAlert("alert", "hello world", "ok");
+        }
+
         public Xamarin.Forms.Shadow.View Render()
         {
-            return new Xamarin.Forms.Shadow.Label
+            return new Xamarin.Forms.Shadow.StackLayout
             {
-                Text = "Welcome to Xamarin Forms!",
                 VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center
+                Children =
+                {
+                    new Xamarin.Forms.Shadow.Label
+                    {
+                        Text = "Welcome to Xamarin Forms!",
+                        HorizontalOptions = LayoutOptions.Center
+                    },
+                    new Xamarin.Forms.Shadow.Button
+                    {
+                        Text = "Click me",
+                        Command = ClickCommand
+                    }
+                }
             };
         }
     }
