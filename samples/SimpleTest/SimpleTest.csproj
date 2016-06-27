@@ -38,6 +38,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleTestPage.cs" />
+    <Compile Include="SimpleTestView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\MassivePixel.Clay\MassivePixel.Clay.csproj">

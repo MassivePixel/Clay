@@ -35,9 +35,9 @@
     <Compile Include="MapClassAttribute.cs" />
     <Compile Include="Attr.cs" />
     <Compile Include="Node.cs" />
-    <Compile Include="IClayComponent.cs" />
     <Compile Include="VirtualDomRenderer.cs" />
     <Compile Include="Patch.cs" />
+    <Compile Include="ClayView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
