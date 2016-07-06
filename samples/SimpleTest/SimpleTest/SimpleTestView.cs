@@ -1,10 +1,11 @@
 using System.Windows.Input;
 using MassivePixel.Clay;
 using Xamarin.Forms;
+using static MassivePixel.Clay.VirtualDOM;
 
 namespace SimpleTest
 {
-    public class SimpleTestView : ClayView
+    public class SimpleTestView : ClayComponent
     {
         readonly ICommand ClickCommand;
 
@@ -18,25 +19,23 @@ namespace SimpleTest
             Application.Current.MainPage.DisplayAlert("alert", "hello world", "ok");
         }
 
-        public override Xamarin.Forms.Shadow.View Render()
-        {
-            return new Xamarin.Forms.Shadow.StackLayout
+        public override Node Render()
+            => h(new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
                 Children =
                 {
-                    new Xamarin.Forms.Shadow.Label
+                    new Label
                     {
                         Text = "Welcome to Xamarin Forms!",
                         HorizontalOptions = LayoutOptions.Center
                     },
-                    new Xamarin.Forms.Shadow.Button
+                    new Button
                     {
                         Text = "Click me",
                         Command = ClickCommand
                     }
                 }
-            };
-        }
+            });
     }
 }

@@ -7,7 +7,18 @@ namespace MassivePixel.Clay
 {
     public class Node
     {
+        public string Name { get; }
+        public IReadOnlyDictionary<string, object> Properties { get; }
+        public IReadOnlyList<Node> Children { get; }
+
         public List<Attr> Attributes { get; } = new List<Attr>();
+
+        public Node(string name, Dictionary<string, object> properties = null, IEnumerable<Node> children = null)
+        {
+            Name = name;
+            Properties = properties ?? new Dictionary<string, object>();
+            Children = children?.ToList() ?? new List<Node>();
+        }
 
         public T Get<T>([CallerMemberName] string propertyName = null)
         {
