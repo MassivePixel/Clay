@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xunit;
 using static MassivePixel.Clay.VirtualDOM;
+using Props = System.Collections.Generic.Dictionary<string, object>;
 
 namespace MassivePixel.Clay.Tests
 {
@@ -118,6 +119,16 @@ namespace MassivePixel.Clay.Tests
                 }
             });
             Assert.True(node.Children.Count > 0);
+        }
+
+        [Fact]
+        public void TestPropsAlias()
+        {
+            var node = h("Label", new Props
+            {
+                {"Text", "Hello world"}
+            });
+            Assert.Equal(1, node.Properties.Count);
         }
     }
 }
