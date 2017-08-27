@@ -1,0 +1,36 @@
+branches:
+  only:
+    - master
+
+version: 0.1.{build}-ci
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+
+os: Visual Studio 2015
+install:
+  - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+
+before_build:
+  nuget restore "src/MassivePixel.Clay.sln"
+
+configuration: Release
+platform: Any CPU
+
+build:
+  parallel: true
+  project: src/MassivePixel.Clay/MassivePixel.Clay.csproj
+  verbosity: minimal
+      
+after_build:
+  - ps: msbuild "src/MassivePixel.Clay/MassivePixel.Clay.csproj" /m /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - ps: nuget pack src/MassivePixel.Clay/MassivePixel.Clay.csproj -Version $env:APPVEYOR_BUILD_VERSION -IncludeReferencedProjects
+artifacts:
+  - path: '**\MassivePixel.*.nupkg'
+
+test:
+  assemblies:
+    - '**\*.tests.dll'
