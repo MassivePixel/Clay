@@ -26,7 +26,6 @@ build:
   verbosity: minimal
       
 after_build:
-  - ps: msbuild "src/MassivePixel.Clay/MassivePixel.Clay.csproj" /m /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   - ps: nuget pack src/MassivePixel.Clay/MassivePixel.Clay.csproj -Version $env:APPVEYOR_BUILD_VERSION -IncludeReferencedProjects
 artifacts:
   - path: '**\MassivePixel.*.nupkg'
